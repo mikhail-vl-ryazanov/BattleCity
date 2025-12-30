@@ -1,5 +1,5 @@
 #include "Texture2D.h"
-
+#include <iostream>
 namespace Renderer {
 
 	Texture2D::Texture2D(const GLuint width, const GLuint height,
@@ -10,6 +10,7 @@ namespace Renderer {
 		: m_width(width)
 		, m_height(height)
 	{
+		std::cout << "channels = " << channels << std::endl;
 		switch (channels)
 		{
 		case 4:
@@ -26,7 +27,7 @@ namespace Renderer {
 		glGenTextures(1, &m_ID);
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, m_ID);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, m_width, m_height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+		glTexImage2D(GL_TEXTURE_2D, 0, m_mode, m_width, m_height, 0, m_mode, GL_UNSIGNED_BYTE, data);
 
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrapMode);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapMode);

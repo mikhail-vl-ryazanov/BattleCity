@@ -1,7 +1,9 @@
 #pragma once
-
+#include <memory>
 #include <glm/vec2.hpp>
 #include <array>
+
+class Tank;
 
 class Game {
 public:
@@ -23,4 +25,5 @@ private:
 
 	glm::ivec2 m_windowSize;
 	EGameState m_eCurrentGameState;
+	std::unique_ptr<Tank> m_pTank;
 };
