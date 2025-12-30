@@ -20,6 +20,10 @@ add_executable(${PROJECT_NAME}
 	src/Game/Game.cpp
 	src/Game/Tank.h
 	src/Game/Tank.cpp
+	src/Renderer/VertexBuffer.h
+	src/Renderer/VertexBuffer.cpp
+	src/Renderer/IndexBuffer.h
+	src/Renderer/IndexBuffer.cpp
 )
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_17)
