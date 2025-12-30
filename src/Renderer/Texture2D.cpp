@@ -1,5 +1,4 @@
 #include "Texture2D.h"
-#include <iostream>
 namespace Renderer {
 
 	Texture2D::Texture2D(const GLuint width, const GLuint height,
@@ -10,7 +9,6 @@ namespace Renderer {
 		: m_width(width)
 		, m_height(height)
 	{
-		std::cout << "channels = " << channels << std::endl;
 		switch (channels)
 		{
 		case 4:
