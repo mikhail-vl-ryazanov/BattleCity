@@ -1,7 +1,7 @@
 #include "SpriteAnimator.h"
 
 #include "Sprite.h"
-
+#include <iostream>
 namespace RenderEngine {
 	SpriteAnimator::SpriteAnimator(std::shared_ptr<Sprite> pSprite)
 		: m_pSprite(std::move(pSprite))
@@ -11,8 +11,9 @@ namespace RenderEngine {
 	{
 	}
 
-	void SpriteAnimator::update(const uint64_t delta)
+	void SpriteAnimator::update(const double delta)
 	{
+		//std::cout << this->getCurrentFrame() <<" "<< m_pSprite->getFramesCount()<<" "<< m_pSprite->getFrameDuration(m_currentFrame)<< std::endl;
 		m_currentAnimationTime += delta;
 		while (m_currentAnimationTime >= m_currentFrameDuration)
 		{
