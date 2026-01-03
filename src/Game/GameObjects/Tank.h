@@ -8,9 +8,9 @@
 #include "../../System/Timer.h"
 
 namespace RenderEngine {
-	class AnimatedSprite;
+	class Sprite;
 }
-
+class Bullet;
 
 class Tank : public IGameObject {
 public:
@@ -31,10 +31,12 @@ public:
 	void update(const double delta) override;
 	double getMaxVelocity() const { return m_maxVelocity; }
 	void setVelocity(const double velocity) override;
+	void fire();
 
 
 private:
 	EOrientation m_eOrientation;
+	std::shared_ptr<Bullet> m_pCurrentBullet;
 	std::shared_ptr<RenderEngine::Sprite> m_pSprite_top;
 	std::shared_ptr<RenderEngine::Sprite> m_pSprite_bottom;
 	std::shared_ptr<RenderEngine::Sprite> m_pSprite_left;
